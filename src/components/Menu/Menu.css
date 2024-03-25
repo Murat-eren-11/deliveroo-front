@@ -11,3 +11,8 @@
   margin-bottom: -25px;
   margin-right: 30px;
 }
+@media (max-width: 768px) {
+  .menu {
+    margin-right: 0;
+  }
+}

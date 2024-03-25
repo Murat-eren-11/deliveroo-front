@@ -74,3 +74,15 @@
   object-fit: cover;
   width: 100%;
 }
+@media (max-width: 1124px) {
+  .platligne {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .plats {
+    width: 100%;
+  }
+  .textplat {
+    width: 100%;
+  }
+}
