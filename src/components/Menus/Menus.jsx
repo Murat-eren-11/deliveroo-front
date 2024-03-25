@@ -1,32 +1,15 @@
-import { useState, useEffect } from "react";
+import React from "react";
 import "./Menus.css";
-import axios from "axios";
 import Plats from "../Plats/Plats";
 
-const Menus = () => {
-  const [data, setData] = useState();
-  const [isLoading, setIsLoading] = useState(true);
+const Menus = ({ categories, isLoading }) => {
+  if (isLoading) {
+    return <span>Attends un peu frère</span>;
+  }
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://site--deliveroo--cbrn9sjblrrw.code.run/"
-        );
-        setData(response.data);
-        setIsLoading(false);
-      } catch (error) {
-        console.log(error.response);
-      }
-    };
-    fetchData();
-  }, []);
-
-  return isLoading ? (
-    <span>Attends un peu frère</span>
-  ) : (
+  return (
     <>
-      {data.categories.map((category, index) => (
+      {categories.map((category, index) => (
         <div className="categories" key={index}>
           <h2>{category.name}</h2>
           <Plats meals={category.meals} />
@@ -35,4 +18,5 @@ const Menus = () => {
     </>
   );
 };
+
 export default Menus;
