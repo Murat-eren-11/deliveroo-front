@@ -1,0 +1,13 @@
+.contenucentre {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 96vw;
+}
+.menu {
+  flex: 1 1;
+  margin-bottom: -25px;
+  margin-right: 30px;
+}

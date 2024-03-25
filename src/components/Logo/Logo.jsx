@@ -1,7 +1,12 @@
 import "./Logo.css";
+import DeliverooLogo from "../../assets/logo-teal.svg";
 
 const Logo = () => {
-  <img src="../../assets/logo-teal.svg" alt="" />;
+  return (
+    <div className="barlogo">
+      <img src={DeliverooLogo} className="logo" alt="" />
+    </div>
+  );
 };
 
 export default Logo;

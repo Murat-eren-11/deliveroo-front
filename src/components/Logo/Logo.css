@@ -1,0 +1,12 @@
+.barlogo {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 96vw;
+  align-items: center;
+  height: 100%;
+}
+.logo {
+  height: 40px;
+}
