@@ -1,11 +1,14 @@
 import "./Plats.css";
 
-const Plats = ({ meals }) => {
+const Plats = ({ meals, addToCart }) => {
+  const handleAddToCart = (meal) => {
+    addToCart(meal);
+  };
   return (
     <div className="platligne">
       {meals.map((meal, index) => (
         <div className="plats" key={index}>
-          <div className="carteplat">
+          <div className="carteplat" onClick={() => handleAddToCart(meal)}>
             <div className="textplat">
               <h3>{meal.title}</h3>
               <p>{meal.description}</p>

@@ -8,6 +8,7 @@ import PetitPanier from "./components/PetitPanier/PetitPanier";
 const App = () => {
   const [categoriesData, setCategoriesData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [panier, setPanier] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,10 +25,19 @@ const App = () => {
     fetchData();
   }, []);
 
+  const addToCart = (meal) => {
+    setPanier([...panier, meal]);
+  };
+
   return (
     <>
       <Header />
-      <Menu categoriesData={categoriesData} isLoading={isLoading} />
+      <Menu
+        categoriesData={categoriesData}
+        isLoading={isLoading}
+        addToCart={addToCart}
+        panier={panier}
+      />
       <PetitPanier />
     </>
   );
