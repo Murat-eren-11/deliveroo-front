@@ -19,6 +19,14 @@
   background: #bac3c3;
   color: #8b9a9b;
   cursor: not-allowed;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 10px;
+  padding: 1rem;
 }
 
 .valider {
@@ -38,12 +46,69 @@
   padding: 3rem 0;
   text-align: center;
 }
+
+.panierobjet {
+  border-bottom: 1px solid #d1d7d7;
+  margin: 0 10px;
+  max-height: calc(100vh-300px);
+  overflow: auto;
+}
+.panierligne {
+  align-items: flex-start;
+  display: flex;
+  padding: 1rem 0;
+}
+.paniercounter {
+  align-items: center;
+  color: #808484;
+  display: flex;
+  margin-right: 10px;
+}
+.panierobjetnom {
+  flex: 1 1;
+}
+.panierobjetprix {
+  text-align: right;
+  width: 85px;
+}
 .petitpanier {
   display: none;
 }
 .petitpanierdesac {
   display: none;
 }
+
+.carresoustotal {
+  border-bottom: 1px solid #d1d7d7;
+  margin: 0 10px;
+  padding: 10px 0;
+}
+.soustotaligne,
+.livraison {
+  align-items: center;
+  display: flex;
+  padding: 0.5rem 0;
+}
+
+.soustotal,
+.fdp,
+.total {
+  flex: 1 1;
+}
+.soustotalprix,
+.totalprix {
+  text-align: right;
+  width: 85px;
+}
+.totaligne {
+  align-items: flex-start;
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 10px;
+  padding: 1.3rem 0;
+}
+
 @media (max-width: 768px) {
   .panier {
     display: none;

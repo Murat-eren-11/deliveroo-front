@@ -26,7 +26,19 @@ const App = () => {
   }, []);
 
   const addToCart = (meal) => {
-    setPanier([...panier, meal]);
+    // Vérifier si le repas existe déjà dans le panier
+    const existingMealIndex = panier.findIndex((item) => item.id === meal.id);
+
+    if (existingMealIndex !== -1) {
+      // Si le repas existe déjà, augmenter simplement sa quantité
+      const updatedPanier = [...panier];
+      updatedPanier[existingMealIndex].quantity += 1;
+      setPanier(updatedPanier);
+    } else {
+      // Si le repas n'existe pas encore dans le panier, l'ajouter avec une quantité de 1
+      const newMeal = { ...meal, quantity: 1 };
+      setPanier([...panier, newMeal]);
+    }
   };
 
   return (

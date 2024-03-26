@@ -13,7 +13,9 @@ const Plats = ({ meals, addToCart }) => {
               <h3>{meal.title}</h3>
               <p>{meal.description}</p>
               <div className="infoplat">
-                <span className="prixplat">{meal.price} €</span>
+                <span className="prixplat">
+                  {parseFloat(meal.price).toFixed(2)} €
+                </span>
                 <span className={meal.popular ? "pop" : "hidden"}>
                   ⭐ Populaire
                 </span>
