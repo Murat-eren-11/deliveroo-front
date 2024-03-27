@@ -26,20 +26,41 @@ const App = () => {
   }, []);
 
   const addToCart = (meal) => {
-    // Vérifier si le repas existe déjà dans le panier
-    const existingMealIndex = panier.findIndex((item) => item.id === meal.id);
+    const newCart = [...panier];
 
-    if (existingMealIndex !== -1) {
-      // Si le repas existe déjà, augmenter simplement sa quantité
-      const updatedPanier = [...panier];
-      updatedPanier[existingMealIndex].quantity += 1;
-      setPanier(updatedPanier);
-    } else {
-      // Si le repas n'existe pas encore dans le panier, l'ajouter avec une quantité de 1
-      const newMeal = { ...meal, quantity: 1 };
-      setPanier([...panier, newMeal]);
+    let found = null;
+    for (let i = 0; i < newCart.length; i++) {
+      const cartElem = newCart[i];
+      if (cartElem.id === meal.id) {
+        found = cartElem;
+        break;
+      }
     }
+
+    if (found !== null) {
+      found.quantity++;
+    } else {
+      newCart.push({ ...meal, quantity: 1 });
+    }
+    setPanier(newCart);
   };
+
+  const retraitProduit = (meal) => {
+    const cartCopy = [...panier];
+    const mealIsInCart = cartCopy.find((elem) => elem.id === meal.id);
+    if (mealIsInCart.quantity === 1) {
+      const indexOfMeal = panier.indexOf(mealIsInCart);
+      cartCopy.splice(indexOfMeal, 1);
+    } else {
+      mealIsInCart.quantity--;
+    }
+    setPanier(cartCopy);
+  };
+
+  let total = 0;
+  panier.forEach((meal) => {
+    total += meal.price * meal.quantity;
+  });
 
   return (
     <>
@@ -49,6 +70,8 @@ const App = () => {
         isLoading={isLoading}
         addToCart={addToCart}
         panier={panier}
+        total={total}
+        retraitProduit={retraitProduit}
       />
       <PetitPanier />
     </>

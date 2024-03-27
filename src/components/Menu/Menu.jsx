@@ -1,9 +1,16 @@
-import React from "react";
 import "./Menu.css";
 import Menus from "../Menus/Menus";
 import Panier from "../Panier/Panier";
 
-const Menu = ({ categoriesData, isLoading, addToCart, panier }) => {
+const Menu = ({
+  categoriesData,
+  isLoading,
+  addToCart,
+  panier,
+  ajoutProduit,
+  retraitProduit,
+  total,
+}) => {
   return (
     <>
       <div className="contenu">
@@ -16,7 +23,13 @@ const Menu = ({ categoriesData, isLoading, addToCart, panier }) => {
             />
           </div>
           <div className="panier">
-            <Panier panier={panier} />
+            <Panier
+              panier={panier}
+              total={total}
+              ajoutProduit={ajoutProduit}
+              addToCart={addToCart}
+              retraitProduit={retraitProduit}
+            />
           </div>
         </div>
       </div>
